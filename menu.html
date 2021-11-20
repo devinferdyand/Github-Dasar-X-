@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+           img{
+           width: 100%;
+           height: 120px;
+       }
+       body{
+           padding: 0%;
+           margin: 0%;
+           background: white;
+       }
+       div{
+           height: 70px;
+       }
+       a{
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+    padding-left: 100px;
+    font-size: 19px;
+     }a:hover{
+         color: whitesmoke;
+     }
+     table{
+         display: right;
+        right: 100px;
+     }
+     input{
+         width: 600px;
+         height: 45px;
+     }
+     select{
+         width: 600px;
+         height: 45px;
+     }
+     b{
+         font-family: sans-serif;
+         padding-left: 30px;
+     }
+     .menu{
+         background: whitesmoke;
+         height: 100px;
+         width: 70%;
+     }
+    </style>
+</head>
+<body>
+    <body>
+        <center>
+          <img src="img/logo.png" width="500px" class="">
+        </center>
+        <center>
+       <div class="bg-dark"><br>
+         <a href="index.html">Beranda</a>
+         <a href="menu.html">Transaksi</a>
+         <a href="contact.html">kontak</a>
+         <a href="login.html">Logout</a>
+       </div><br><br>
+    </center>
+    <center>
+        <table class="menu">
+    <tr>
+        <td><b>harga nasi goreng biasa Rp.15.000</b></td>
+         <td>|</td>
+         <td></td>
+        <td><b>harga nasi goreng kambing Rp.10.000</b></td>
+    </tr>
+    <br>
+    <tr>
+        <td><b>harga nasi goreng pete Rp.17.000</b></td>
+        <td>|</td>
+        <td></td>
+        <td><b>harga mie tektek Rp.15.000</b></td>
+    </tr>
+</table>
+    <br>
+   <hr>
+    <table>
+     <tr>
+         <td>pesan apa </td>
+         <td>:</td>
+         <td><select name="pilih" id="pilih">
+            <option value="biasa" id="biasa">nasi goreng biasa</option>
+            <option value="kambing" id="kambing">nasi goreng kambing</option>
+            <option value="pete" id="pete">nasi goreng pete</option>
+            <option value="tektek" id="tektek">mie tektek</option>
+        </select></td>
+     </tr>
+  <tr>
+      <td>QTY</td>
+      <td>:</td>
+      <td><input type="text" placeholder="QTY" id="pesan"></td>
+  </tr>
+    <tr>
+        <td>status</td>
+        <td>:</td>
+        <td><select name="pilihan" id="pilihan">
+            <option value="member" id="member">member</option>
+            <option value="nomember" id="nomember">nomember</option>
+        </select></td>
+    </tr>
+   <tr>
+     <td></td> <td></td> <td><button onclick="klik()" class="col-sm-2 btn btn-success">klik</button></td>
+   </tr>
+    <tr>
+        <td><label for="">hasil </label></td>
+        <td>:</td>
+        <td><p id="hasil"></p></td>
+    </tr>
+    <tr>
+        <td>bayar</td>
+        <td>:</td>
+        <td><input type="text" placeholder="bayar" id="bayar"></td>
+    </tr>
+ <tr>
+    <td><label for="">kembalian</label></td>
+    <td>:</td>
+    <td><p id="kembalian"></p></td>
+ </tr>
+ <tr>
+     <td></td>
+     <td></td>
+<td><button onclick="submit()" class="col-sm-2 btn btn-success">submit</button></td>
+<td><button type="reset">reset</button></td>
+ </tr>
+</center>
+
+</body>
+
+
+
+
+<script>
+    function klik(){
+        var pilih = document.getElementById("pilih").value;
+         var pilihan = document.getElementById("pilihan").value;
+         var member = document.getElementById("member").value;
+         var nomember = document.getElementById("nomember").value;
+         var bayar = document.getElementById("bayar").value;
+         var jumlah;
+         var hasil;
+         var total;
+         var semua;
+         var hargab = 15000;
+         var hargak =10000;
+         var hargap = 17000;
+         var hargat= 15000;
+         var pesan = document.getElementById("pesan").value;
+         var biasa = document.getElementById("biasa").value;
+         var kambing = document.getElementById("kambing").value;
+         var pete = document.getElementById("pete").value;
+         var tektek = document.getElementById("tektek").value;
+ 
+         if(pilih === "biasa"){
+         hargab = 15000;
+         jumlah = hargab * pesan;
+         document.getElementById("hasil").innerHTML="total nya Rp: " + jumlah;
+         hasil = bayar - jumlah;
+    
+       } else if(pilih ==="kambing"){
+         hargak = 10000;
+         jumlah = hargak * pesan;
+         document.getElementById("hasil").innerHTML="total nya Rp: " + jumlah;
+        hasil = bayar - jumlah;
+
+     }  else if(pilih ==="pete"){
+         hargap = 17000;
+         jumlah = hargap * pesan;
+         document.getElementById("hasil").innerHTML="total nya Rp: " + jumlah;
+           hasil = bayar - jumlah;
+    
+ }
+       else if(pilih ==="tektek"){
+         hargat = 15000;
+         jumlah = hargat * pesan;
+         document.getElementById("hasil").innerHTML="total nya Rp: " + jumlah;
+          hasil = bayar - jumlah;
+         
+    }
+    if (pilihan === "member"){
+        diskon = (10/100)*jumlah;
+        total = jumlah - diskon;
+        hasil = total - diskon;
+        document.getElementById("hasil").innerHTML="total nya Rp: " + total;
+
+    }
+    }
+  
+
+
+    function submit(){
+        var pilih = document.getElementById("pilih").value;
+         var pilihan = document.getElementById("pilihan").value;
+         var member = document.getElementById("member").value;
+         var nomember = document.getElementById("nomember").value;
+         var bayar = document.getElementById("bayar").value;
+         var jumlah;
+         var hasil;
+         var total;
+         var semua;
+         var hargab = 15000;
+         var hargak =20000;
+         var hargap = 17000;
+         var hargat= 15000;
+         var pesan = document.getElementById("pesan").value;
+         var biasa = document.getElementById("biasa").value;
+         var kambing = document.getElementById("kambing").value;
+         var pete = document.getElementById("pete").value;
+         var tektek = document.getElementById("tektek").value;
+ 
+         if(pilih === "biasa"){
+         hargab = 15000;
+         jumlah = hargab * pesan;
+         hasil = bayar - jumlah;
+         document.getElementById("kembalian").innerHTML= " kembalianya " + hasil;
+       } else if(pilih ==="kambing"){
+         hargak = 20000;
+         jumlah = hargak * pesan;
+         hasil = bayar - jumlah;
+        hasil = bayar - jumlah;
+        document.getElementById("kembalian").innerHTML= " kembalianya " + hasil;
+     }  else if(pilih ==="pete"){
+         hargap = 17000;
+         jumlah = hargap * pesan;
+           hasil = bayar - jumlah;
+           document.getElementById("kembalian").innerHTML= " kembalianya " + hasil;
+    
+ }
+       else if(pilih ==="tektek"){
+         hargat = 15000;
+         jumlah = hargat * pesan;
+          hasil = bayar - jumlah;
+          document.getElementById("kembalian").innerHTML= " kembalianya " + hasil;
+  }
+  if (pilihan === "member"){
+        diskon = (10/100)*jumlah;
+        hasil = jumlah - diskon;
+        document.getElementById("kembalian").innerHTML="total nya Rp: " + hasil;
+    }
+  
+    }
+ </script>
+ <!--
+         if (pilihan === "member"){
+        diskon = (10/100)*jumlah;
+        total = jumlah - diskon;
+        semua = hasil - diskon;
+        document.getElementById("hasil").innerHTML="total nya Rp: " + total;
+        document.getElementById("kembalian").innerHTML="kembalianya nya Rp: " + semua;
+ -->
+ </html>

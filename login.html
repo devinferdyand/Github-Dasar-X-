@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .login{
+            width: 730px;
+            height: 400px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 10px 5px 10px 5px grey;
+        }
+        input{
+            width: 551px;
+            height: 40px;
+            border: none;
+            border: 1px solid rgb(219, 216, 216);
+            border-radius: 5px;
+        }input:hover{
+            border: 2px solid gray;
+        }
+        body{
+        background-size: 100%;
+        }
+        h2{
+           font-family: sans-serif;
+           color: black;
+        }
+    </style>
+</head>
+<body background="img/ayam.jpg">
+    <center><br><br>
+    <div class="login"><br>
+        <h2>L O G I N</h2>
+        <hr>
+        <form action="index.html">
+    <input type="text" placeholder="nama" id="nama"><br><br>
+     <input type="text" placeholder="pass" id="pass"><br><br>
+    <button onclick="login()" class="btn btn-success col-sm-9">login</button><br><br>
+    <button type="reset" class="btn btn-danger col-sm-9">reset</button><br><br>
+    <i>jika belum punya akun |</i> <a href="register.html">register</a>
+</form>
+</center>
+</div>
+</body>
+<script>
+    function login(){
+
+    var nama = document.getElementById("nama").value;
+    var pass = document.getElementById("pass").value;
+    
+     if ( nama === "devin" && pass ==="dono"){
+       alert ("berhasil")
+    
+     }
+     else{
+        document.write("login gagal");
+     }
+    }  
+</script>
+</html>
